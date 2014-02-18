@@ -1,0 +1,3 @@
+bancarel_valentin_portefolio_homepage:
+    pattern:  /
+    defaults: { _controller: BancarelValentinPortefolioBundle:Portefolio:index }

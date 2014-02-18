@@ -1,0 +1,7 @@
+parameters:
+#    bancarel_valentin_portefolio.example.class: BancarelValentin\PortefolioBundle\Example
+
+services:
+#    bancarel_valentin_portefolio.example:
+#        class: %bancarel_valentin_portefolio.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

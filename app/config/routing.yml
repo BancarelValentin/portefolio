@@ -1,0 +1,3 @@
+bancarel_valentin_portefolio:
+    resource: "@BancarelValentinPortefolioBundle/Resources/config/routing.yml"
+    prefix:   /
