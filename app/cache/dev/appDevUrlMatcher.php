@@ -135,13 +135,70 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // bancarel_valentin_portefolio_homepage
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'bancarel_valentin_portefolio_homepage');
+        if (0 === strpos($pathinfo, '/rpi')) {
+            // admin_rpi_homepage
+            if (rtrim($pathinfo, '/') === '/rpi') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'admin_rpi_homepage');
+                }
+
+                return array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::indexAction',  '_route' => 'admin_rpi_homepage',);
             }
 
-            return array (  '_controller' => 'BancarelValentin\\PortefolioBundle\\Controller\\PortefolioController::indexAction',  '_route' => 'bancarel_valentin_portefolio_homepage',);
+            // admin_rpi_setReveil
+            if ($pathinfo === '/rpi/setReveil') {
+                return array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::setReveilAction',  '_route' => 'admin_rpi_setReveil',);
+            }
+
+            // admin_rpi_reveil
+            if (0 === strpos($pathinfo, '/rpi/reveil') && preg_match('#^/rpi/reveil(?:/(?P<force>[^/]++))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_rpi_reveil')), array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::reveilAction',  'force' => 0,));
+            }
+
+        }
+
+        // portefolio_homepage
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'portefolio_homepage');
+            }
+
+            return array (  '_controller' => 'BancarelValentin\\PortefolioBundle\\Controller\\PortefolioController::indexAction',  '_route' => 'portefolio_homepage',);
+        }
+
+        // portefolio_cv
+        if ($pathinfo === '/cv') {
+            return array (  '_controller' => 'BancarelValentin\\PortefolioBundle\\Controller\\PortefolioController::cvAction',  '_route' => 'portefolio_cv',);
+        }
+
+        // portefolio_list_travaux
+        if (0 === strpos($pathinfo, '/annee') && preg_match('#^/annee/(?P<annee>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'portefolio_list_travaux')), array (  '_controller' => 'BancarelValentin\\PortefolioBundle\\Controller\\PortefolioController::listTravauxAction',));
+        }
+
+        // portefolio_show
+        if (0 === strpos($pathinfo, '/show') && preg_match('#^/show/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'portefolio_show')), array (  '_controller' => 'BancarelValentin\\PortefolioBundle\\Controller\\PortefolioController::showAction',));
+        }
+
+        // portefolio_veille
+        if ($pathinfo === '/veille') {
+            return array (  '_controller' => 'BancarelValentin\\PortefolioBundle\\Controller\\PortefolioController::veilleAction',  '_route' => 'portefolio_veille',);
+        }
+
+        // portefolio_contact
+        if (0 === strpos($pathinfo, '/contact') && preg_match('#^/contact(?:/(?P<idMessage>[^/]++))?$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'portefolio_contact')), array (  '_controller' => 'BancarelValentin\\PortefolioBundle\\Controller\\PortefolioController::contactAction',  'idMessage' => 0,));
+        }
+
+        // portefolio_sendMessage
+        if ($pathinfo === '/send') {
+            return array (  '_controller' => 'BancarelValentin\\PortefolioBundle\\Controller\\PortefolioController::sendMessageAction',  '_route' => 'portefolio_sendMessage',);
+        }
+
+        // portefolio_phpmyadmin
+        if ($pathinfo === '/private/phpmyadmin') {
+            return array (  '_controller' => 'BancarelValentin\\PortefolioBundle\\Controller\\PortefolioController::openPhpMyAdminAction',  '_route' => 'portefolio_phpmyadmin',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

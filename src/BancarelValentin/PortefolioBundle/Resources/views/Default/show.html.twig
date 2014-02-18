@@ -1,0 +1,68 @@
+{% extends "base.html.twig" %}
+{% block title %}
+Realisation
+{% endblock %}
+
+
+{% block body %}
+<header class="page-header">
+
+    <h2 class="project-title">{{laReal.titre}}</h2>
+
+</header><!-- end .page-header -->
+<a>
+    <img src="{{ asset('bundles/public/images/realisations/'~laReal.id~'/'~laReal.urlimage) }}" alt="{{laReal.titre}}" class="entry-image">
+</a>
+    {% set reference = laReal.id %}
+<div class="entry-body">
+    <a>
+        <h1 class="title">{{laReal.titre}}</h1>
+    </a>
+    <p>{{laReal.description|raw}}</p>
+    <br>            
+</div><!-- end .entry-body -->
+<div class="entry-meta">
+    <ul>
+        <li><a><span class="post-format">Permalink</span></a></li>
+        <li><span class="title">Poster le:</span> <br><a>{{laReal.date|date('d-m-y')}}</a></li>
+        <li><span class="title">A:</span> <a>{{laReal.date|date('H:m')}}</a></li>
+    </ul>
+</div><!-- end .entry-meta -->
+{% include 'KunstmaanVotingBundle:UpDown:vote.html.twig' %}
+{% if leSlide|length >0%}
+<section id="features-slider" class="ss-slider">
+{%endif%}
+        {% set num = 0 %}
+        {% for uneImage in leSlide%}
+        {% set num=num+1 %}
+    <article class="slide">
+        <img src="{{uneImage.url}}" alt="{{uneImage.titre}}" class="slide-bg-image" />
+        <div class="slide-button">
+            <span class="dropcap">{{num}}</span>
+            <h5>{{uneImage.titre}}</h5>
+            <span class="description">{{uneImage.soustitre}}</span>
+        </div>
+        <div class="slide-content">
+            <h2>{{uneImage.titre}}</h2>
+            <p>{{uneImage.description}}</p>
+        </div>
+    </article>
+        {% endfor %}
+{% if leSlide|length >0%}
+</section><!-- end #features-slider -->
+<br/>
+{%endif%}
+
+        {% for unDoc in lesDocs%}
+<hr>
+<h4 class='titreDoc'>
+    <a href='{{unDoc.url}}'>{{unDoc.titre}}</a>
+</h4>
+{{unDoc.iframe|raw}}
+        {% endfor %}
+
+{% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}

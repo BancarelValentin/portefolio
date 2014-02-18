@@ -1,3 +1,31 @@
-bancarel_valentin_portefolio_homepage:
+portefolio_homepage:
     pattern:  /
     defaults: { _controller: BancarelValentinPortefolioBundle:Portefolio:index }
+    
+portefolio_cv:
+    pattern:  cv
+    defaults: { _controller: BancarelValentinPortefolioBundle:Portefolio:cv }
+    
+portefolio_list_travaux:
+    pattern:  annee/{annee}
+    defaults: { _controller: BancarelValentinPortefolioBundle:Portefolio:listTravaux }
+
+portefolio_show:
+    pattern:  show/{id}
+    defaults: { _controller: BancarelValentinPortefolioBundle:Portefolio:show }
+    
+portefolio_veille:
+    pattern:  veille
+    defaults: { _controller: BancarelValentinPortefolioBundle:Portefolio:veille }
+    
+portefolio_contact:
+    pattern:  contact/{idMessage}
+    defaults: { _controller: BancarelValentinPortefolioBundle:Portefolio:contact,idMessage:0 }
+
+portefolio_sendMessage:
+    pattern:  send
+    defaults: { _controller: BancarelValentinPortefolioBundle:Portefolio:sendMessage }
+
+portefolio_phpmyadmin:
+    pattern:  private/phpmyadmin
+    defaults: { _controller: BancarelValentinPortefolioBundle:Portefolio:openPhpMyAdmin }

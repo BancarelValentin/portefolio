@@ -1,3 +1,7 @@
-bancarel_valentin_portefolio:
+admin_rpi:
+    resource: "@BancarelValentinAdminRPIBundle/Resources/config/routing.yml"
+    prefix:   /rpi
+
+portefolio:
     resource: "@BancarelValentinPortefolioBundle/Resources/config/routing.yml"
     prefix:   /

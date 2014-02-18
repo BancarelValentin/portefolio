@@ -1,0 +1,7 @@
+parameters:
+#    bancarel_valentin_admin_rpi.example.class: BancarelValentin\AdminRPIBundle\Example
+
+services:
+#    bancarel_valentin_admin_rpi.example:
+#        class: %bancarel_valentin_admin_rpi.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

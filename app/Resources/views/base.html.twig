@@ -1,13 +1,154 @@
 <!DOCTYPE html>
-<html>
+
+<!--[if IE 7]>                  <html class="ie7 no-js" lang="en">     <![endif]-->
+<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<html class="not-ie no-js" lang="en">  <!--<![endif]-->
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="author" content="BANCAREL Valentin">
+        {% block meta%}{% endblock %}
+        
+        <link href="{{ asset('bundles/public/css/style.css') }}" rel="stylesheet" />
+        
+        <title>{% block title %}{% endblock %}</title>
+
+
+        <!-- HTML5 Shiv + detect touch events -->
+        <script src="{{ asset('bundles/public/js/modernizr.custom.js')}}"></script>
+        <!-- HTML5 video player -->
+        <script src="{{ asset('bundles/public/js/video.min.js')}}"></script>
+        <script>_V_.options.flash.swf = '{{ asset('bundles/public/js/video-js.swf')}}';</script>
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/public/images/favicon.ico') }}" />
     </head>
     <body>
+        <header id="header" class="container clearfix">
+            <a href="{{path('portefolio_homepage')}}" id="logo">
+                <img src="{{ asset('bundles/public/images/logo.png') }}" alt="Bancarel Valentin">
+            </a>
+            <nav id="main-nav">
+                <ul>
+                    <li{% if onglet == "acceuil" %} class='current'{% endif %}>
+                        <a href="{{ path('portefolio_homepage') }}" data-description="hello">Acceuil</a>
+                    </li>
+
+                    <li{% if onglet == "cv" %} class='current'{% endif %}>
+                        <a href="{{ path('portefolio_cv') }}" data-description="cv">Curiculum vitae</a>
+                    </li>
+
+                    <li{% if onglet == "real" %} class='current'{% endif %}>
+                        <a href='#' data-description="realisations">Travaux</a>
+                        <ul>
+                            <li>
+                                <a href='{{ path('portefolio_list_travaux',{'annee': 1}) }}'>1ere annee</a>
+                            </li>
+
+                            <li>
+                                <a href='{{ path('portefolio_list_travaux',{'annee': 2}) }}'>2eme annee</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li{% if onglet == "veille" %} class='current'{% endif %}>
+                        <a href="{{ path('portefolio_veille') }}" data-description="raspberry">Veille techno</a>
+                    </li>
+
+                    <li{% if onglet == "contact" %} class='current'{% endif %}>
+                        <a href="{{ path('portefolio_contact') }}" data-description="une question ?">Contact</a>
+                    </li>
+
+                    <li{% if onglet == "rpi" %} class='current'{% endif %}>
+                        <a href="{{ path('admin_rpi_homepage') }}" data-description="raspberry">administration RPI</a>
+                        <ul>
+                            <li>
+                                <a href="{{ path('admin_rpi_setReveil') }}">Regler reveil</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('admin_rpi_reveil') }}">Allumer reveil</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header><!-- end #header -->
+
+
+        <section id="content" class="container clearfix">
         {% block body %}{% endblock %}
+        </section><!-- end #content -->
+
+
+        <footer id="footer" class="clearfix">
+            <div class="container">
+                <div class="three-fourth">
+                    <nav id="footer-nav" class="clearfix">
+                        <ul>
+                            <li>
+                                <a href="{{ path('portefolio_homepage') }}">Acceuil</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ path('portefolio_cv') }}">Curiculum vitae</a>
+                            </li>
+
+                            <li>
+                                <a href='{{ path('portefolio_list_travaux',{'annee': 1}) }}'>1ere annee</a>
+                            </li>
+
+                            <li>
+                                <a href='{{ path('portefolio_list_travaux',{'annee': 2}) }}'>2eme annee</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ path('portefolio_veille') }}">Veille techno</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ path('portefolio_contact') }}">Contact</a>
+                            </li>
+
+                            <li>
+                                <a href="{{ path('admin_rpi_homepage') }}">administration RPI</a>
+                            </li>
+                        </ul>
+                    </nav><!-- end #footer-nav -->
+
+                    <ul class="contact-info">
+                        <li class="address">15 Boulevard du pavatou - 15000 Aurillac</li>
+                        <li class="phone">Tél : 06 78 81 61 78</li>
+                        <li class="email"><a href="mailto:bancarel.valentin@gmail.com">bancarel.valentin@gmail.com</a></li>
+                    </ul><!-- end .contact-info -->
+
+                </div><!-- end .three-fourth -->
+            </div><!-- end .container -->
+        </footer><!-- end #footer -->
+
+        <footer id="footer-bottom" class="clearfix">
+            <div class="container">
+                <ul>
+                    <li>SmartStart &copy; 2012</li>
+                    <li><a href="#">Legal Notice</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div><!-- end .container -->
+        </footer><!-- end #footer-bottom -->
+        
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+        <script src="{{ asset('bundles/public/js/respond.min.js') }}"></script>
+        <script src="{{ asset('bundles/public/js/jquery.easing-1.3.min.js') }}"></script>
+        <script src="{{ asset('bundles/public/js/jquery.fancybox.pack.js') }}"></script>
+        <script src="{{ asset('bundles/public/js/jquery.smartStartSlider.min.js') }}"></script>
+        <script src="{{ asset('bundles/public/js/jquery.jcarousel.min.js') }}"></script>
+        <script src="{{ asset('bundles/public/js/jquery.cycle.all.min.js') }}"></script>
+        <script src="{{ asset('bundles/public/js/jquery.isotope.min.js') }}"></script>
+        <script src="//maps.google.com/maps/api/js?sensor=false"></script>
+        <script src="{{ asset('bundles/public/js/jquery.gmap.min.js') }}"></script>
+        <script src="{{ asset('bundles/public/js/jquery.touchSwipe.min.js') }}"></script>
+        <script src="{{ asset('bundles/public/js/custom.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

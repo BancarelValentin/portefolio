@@ -1,0 +1,12 @@
+admin_rpi_homepage:
+    pattern:  /
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:index }
+    
+admin_rpi_setReveil:
+    pattern:  /setReveil
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:setReveil}
+    
+admin_rpi_reveil:
+    pattern:  /reveil/{force}
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:reveil,force: 0}
+
