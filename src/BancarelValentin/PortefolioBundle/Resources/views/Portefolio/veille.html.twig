@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    Veille technologique
+{% endblock %}
+
+
+{% block body %}
+    <h2 class="slogan align-center">Veille technologique</h2>
+
+    <div class="one-third">
+         <p>Durant notre formation, il nous est demander de choisir un sujet de l'actualite (en rapports avec notre formation) que nous devons suivre et mettre a jour sur ce porte folio, cela peut aussi bien etre un logiciel, une norme, un appareil Hi-Tech,etc</p>
+    </div>    
+    <div class="one-third">
+
+         <p>Personellement, j'ai choisi de m'interesser a un micro ordinateur, le <a href='http://www.raspberrypi.org/'>Raspberry Pi</a> de <strong>David Barben</strong>,ce PC malgre sa petite taille est tout de meme assez puissant pour faire tourner differentes distributions de LINUX dont une lui étant dedie par consequent, </p>
+    </div>    
+    <div class="one-third-last">
+         <p> meme si le Raspberry Pi etait initialement concu pour les pays en voie de developpement ainsi que pour encourager l'aprentissage de la programation, de nombreux infonrmaticien bidouilleurs et autre technophiles l'utilise pour realiser de <a href='http://korben.info/idees-raspberry-pi.html'>nombreux projet</a> allant du plus original au plus fou.</p>
+    </div>    
+    <div class="clear"></div>
+    
+    <hr>
+    
+    <header class="page-header">
+         <h1 class="page-title">
+             Mes recherches
+         </h1>
+         <ul id="portfolio-items-filter">
+              <li>Recherche a afficher:</li>
+              <li><a data-categories="*">Tout</a></li>
+              <li><a data-categories="RPI">Raspberry Pi</a></li>
+              <li><a data-categories="SF2">Symfony 2</a></li>
+         </ul>
+    </header>
+
+    <section id="portfolio-items" class="clearfix">
+    {% for uneReal in lesReals %}
+            {% set dataCat=uneReal.id| slice(0, 1) %}
+        <article class="one-half" data-categories="{{dataCat}}">
+            <a href="{{ path('portefolio_show',{'id':uneReal.id}) }}"  title="{{uneReal.titre}}">
+                 <img src="{{ asset('bundles/public/images/realisations/'~uneReal.id~'/'~uneReal.urlimage) }}" width="350px" height="200px" alt="{{uneReal.titre}}">
+            </a>
+            <a href="{{path('portefolio_show',{'id':uneReal.id}) }}" class="project-meta">
+                 <h5 class="title">{{uneReal.titre}}</h5>
+                 <span class="categories">
+                         {% if dataCat == "RPI" %}
+                                Raspberry Pi
+                         {% elseif dataCat == "SF2" %}
+                                Symfony 2
+                         {% endif%}
+                     </span> 
+            </a>
+        </article>
+    {% endfor %}
+    </section>
+{% endblock %}

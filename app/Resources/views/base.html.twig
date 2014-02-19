@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
-<!--[if IE 7]>                  <html class="ie7 no-js" lang="en">     <![endif]-->
-<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
+<!--[if IE 7]>                  <html class="ie7 no-js" lang="fr">     <![endif]-->
+<!--[if lte IE 8]>              <html class="ie8 no-js" lang="fr">     <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--> 
-<html class="not-ie no-js" lang="en">  <!--<![endif]-->
+<html class="not-ie no-js" lang="fr">  <!--<![endif]-->
     <head>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -39,7 +39,7 @@
                     </li>
 
                     <li{% if onglet == "real" %} class='current'{% endif %}>
-                        <a href='#' data-description="realisations">Travaux</a>
+                        <a href='' data-description="realisations">Travaux</a>
                         <ul>
                             <li>
                                 <a href='{{ path('portefolio_list_travaux',{'annee': 1}) }}'>1ere annee</a>
@@ -149,6 +149,6 @@
         <script src="{{ asset('bundles/public/js/jquery.gmap.min.js') }}"></script>
         <script src="{{ asset('bundles/public/js/jquery.touchSwipe.min.js') }}"></script>
         <script src="{{ asset('bundles/public/js/custom.js') }}"></script>
-        {% block javascripts %}{% endblock %}
+        {% block script %}{% endblock %}
     </body>
 </html>

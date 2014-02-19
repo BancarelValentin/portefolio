@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: /Users/bancarelvalentin/Desktop/portefolio/app/config/routing_dev.yml
+    resource: 'C:/Users/GENERAL/Documents/stage/NetBeansProjects/portefolio/app/config/routing_dev.yml'

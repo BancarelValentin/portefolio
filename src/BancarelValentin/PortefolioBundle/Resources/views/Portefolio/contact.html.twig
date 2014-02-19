@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+{% block title %}
+    contact
+{% endblock %}
+
+
+{% block body %}
+    <div class="container clearfix">
+        <header class="page-header">
+            <h1 class="page-title">Une question, une suggestion... Contacter moi</h1>
+        </header>
+    </div>
+
+    <div class="container clearfix">
+        <div class="one-fourth">
+            <h3>Contact Info</h3>
+            <p>Mr Bancarel Valentin<br/>
+                15, Boulevard du Pavatou<br/>
+                15000 Aurillac
+            </p>
+            <p>Telephone: 0678816178<br/>
+                Email: bancarel.valentin@gmail.com<br/>
+                Web: bancarelvalentin.tk
+            </p>
+        </div>
+
+        <div class="three-fourth last">
+            <h3>En completant ce formulaire</h3>
+            <form action="{{ path('portefolio_contact') }}" autocomplete="on" method="post" class="contact-form">
+                <p class="input-block">
+                    <label for="contact-name"><strong>Nom</strong> (requis)</label>
+                    <input type="text" name="name" value="" id="contact-name">
+                </p>
+
+                <p class="input-block">
+                    <label for="contact-email"><strong>Email</strong> (requis)</label>
+                    <input type="email" name="email" value="" id="contact-email">
+                </p>
+
+                <p class="input-block">
+                     <label for="contact-subject"><strong>Objet</strong></label>
+                     <input type="text" name="subject" value="" id="contact-subject">
+                </p>
+
+                <p class="textarea-block">
+                     <label for="contact-message"><strong>Message</strong> (requis)</label>
+                     <textarea name="message" id="contact-message" cols="88" rows="6"></textarea>
+                </p>
+
+                <div class="hidden">
+                     <label for="contact-spam-check">Ne pas remplir ce champ:</label>
+                     <input name="spam-check" type="text" value="noSpam" id="contact-spam-check" />
+                </div>
+
+                <input type="submit" value="Submit">
+
+                <div class="clear"></div>
+
+           </form>
+            
+          {{message|raw}}
+
+      </div><!-- end .three-fourth.last -->
+    </div><!-- end .container -->
+{% endblock %}
