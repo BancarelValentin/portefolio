@@ -109,7 +109,7 @@ class __TwigTemplate_802bf7cc1c5f7cde45241cdd68da35c36e739c7f559e4f9933649db2d70
             echo " class='current'";
         }
         echo ">
-                        <a href='' data-description=\"realisations\">Travaux</a>
+                        <a data-description=\"realisations\">Travaux</a>
                         <ul>
                             <li>
                                 <a href='";
@@ -124,68 +124,77 @@ class __TwigTemplate_802bf7cc1c5f7cde45241cdd68da35c36e739c7f559e4f9933649db2d70
         echo $this->env->getExtension('routing')->getPath("portefolio_list_travaux", array("annee" => 2));
         echo "'>2eme annee</a>
                             </li>
+
+                            <li>
+                                <a href='";
+        // line 53
+        echo $this->env->getExtension('routing')->getPath("portefolio_list_travaux", array("annee" => 0));
+        echo "'>Travaux personnel</a>
+                            </li>
                         </ul>
                     </li>
 
                     <li";
-        // line 54
+        // line 58
         if (((isset($context["onglet"]) ? $context["onglet"] : $this->getContext($context, "onglet")) == "veille")) {
             echo " class='current'";
         }
         echo ">
                         <a href=\"";
-        // line 55
+        // line 59
         echo $this->env->getExtension('routing')->getPath("portefolio_veille");
         echo "\" data-description=\"raspberry\">Veille techno</a>
                     </li>
 
                     <li";
-        // line 58
+        // line 62
         if (((isset($context["onglet"]) ? $context["onglet"] : $this->getContext($context, "onglet")) == "contact")) {
             echo " class='current'";
         }
         echo ">
                         <a href=\"";
-        // line 59
+        // line 63
         echo $this->env->getExtension('routing')->getPath("portefolio_contact");
         echo "\" data-description=\"une question ?\">Contact</a>
                     </li>
-
-                    <li";
-        // line 62
-        if (((isset($context["onglet"]) ? $context["onglet"] : $this->getContext($context, "onglet")) == "rpi")) {
-            echo " class='current'";
-        }
-        echo ">
-                        <a href=\"";
-        // line 63
-        echo $this->env->getExtension('routing')->getPath("admin_rpi_homepage");
-        echo "\" data-description=\"raspberry\">administration RPI</a>
-                        <ul>
-                            <li>
-                                <a href=\"";
+                    
+                    ";
         // line 66
-        echo $this->env->getExtension('routing')->getPath("admin_rpi_setReveil");
-        echo "\">Regler reveil</a>
-                            </li>
-                            <li>
-                                <a href=\"";
-        // line 69
-        echo $this->env->getExtension('routing')->getPath("admin_rpi_reveil");
-        echo "\">Allumer reveil</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+        if (((isset($context["onglet"]) ? $context["onglet"] : $this->getContext($context, "onglet")) == "rpi")) {
+            // line 67
+            echo "                        <li class='current'>
+                            <a href=\"";
+            // line 68
+            echo $this->env->getExtension('routing')->getPath("admin_rpi_homepage");
+            echo "\" data-description=\"raspberry\">administration RPI</a>
+                            <ul>
+                                <li>
+                                    <a href=\"";
+            // line 71
+            echo $this->env->getExtension('routing')->getPath("admin_rpi_setReveil");
+            echo "\">Regler reveil</a>
+                                </li>
+                                <li>
+                                    <a href=\"";
+            // line 74
+            echo $this->env->getExtension('routing')->getPath("admin_rpi_reveil");
+            echo "\">Allumer reveil</a>
+                                </li>
+                            </ul>
+                        </li>
+                    ";
+        }
+        // line 79
+        echo "                </ul>
             </nav>
         </header><!-- end #header -->
 
 
         <section id=\"content\" class=\"container clearfix\">
         ";
-        // line 79
+        // line 85
         $this->displayBlock('body', $context, $blocks);
-        // line 80
+        // line 86
         echo "        </section><!-- end #content -->
 
 
@@ -196,49 +205,49 @@ class __TwigTemplate_802bf7cc1c5f7cde45241cdd68da35c36e739c7f559e4f9933649db2d70
                         <ul>
                             <li>
                                 <a href=\"";
-        // line 89
+        // line 95
         echo $this->env->getExtension('routing')->getPath("portefolio_homepage");
         echo "\">Acceuil</a>
                             </li>
 
                             <li>
                                 <a href=\"";
-        // line 93
+        // line 99
         echo $this->env->getExtension('routing')->getPath("portefolio_cv");
         echo "\">Curiculum vitae</a>
                             </li>
 
                             <li>
                                 <a href='";
-        // line 97
+        // line 103
         echo $this->env->getExtension('routing')->getPath("portefolio_list_travaux", array("annee" => 1));
         echo "'>1ere annee</a>
                             </li>
 
                             <li>
                                 <a href='";
-        // line 101
+        // line 107
         echo $this->env->getExtension('routing')->getPath("portefolio_list_travaux", array("annee" => 2));
         echo "'>2eme annee</a>
                             </li>
 
                             <li>
                                 <a href=\"";
-        // line 105
+        // line 111
         echo $this->env->getExtension('routing')->getPath("portefolio_veille");
         echo "\">Veille techno</a>
                             </li>
 
                             <li>
                                 <a href=\"";
-        // line 109
+        // line 115
         echo $this->env->getExtension('routing')->getPath("portefolio_contact");
         echo "\">Contact</a>
                             </li>
 
                             <li>
                                 <a href=\"";
-        // line 113
+        // line 119
         echo $this->env->getExtension('routing')->getPath("admin_rpi_homepage");
         echo "\">administration RPI</a>
                             </li>
@@ -269,50 +278,50 @@ class __TwigTemplate_802bf7cc1c5f7cde45241cdd68da35c36e739c7f559e4f9933649db2d70
         <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js\"></script>
         <script>window.jQuery || document.write('<script src=\"js/jquery-1.7.1.min.js\"><\\/script>')</script>
         <script src=\"";
-        // line 141
+        // line 147
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/public/js/respond.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 142
+        // line 148
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/public/js/jquery.easing-1.3.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 143
+        // line 149
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/public/js/jquery.fancybox.pack.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 144
+        // line 150
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/public/js/jquery.smartStartSlider.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 145
+        // line 151
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/public/js/jquery.jcarousel.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 146
+        // line 152
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/public/js/jquery.cycle.all.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 147
+        // line 153
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/public/js/jquery.isotope.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"//maps.google.com/maps/api/js?sensor=false\"></script>
         <script src=\"";
-        // line 149
+        // line 155
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/public/js/jquery.gmap.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 150
+        // line 156
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/public/js/jquery.touchSwipe.min.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 151
+        // line 157
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/public/js/custom.js"), "html", null, true);
         echo "\"></script>
         ";
-        // line 152
+        // line 158
         $this->displayBlock('script', $context, $blocks);
-        // line 153
+        // line 159
         echo "    </body>
 </html>
 ";
@@ -328,12 +337,12 @@ class __TwigTemplate_802bf7cc1c5f7cde45241cdd68da35c36e739c7f559e4f9933649db2d70
     {
     }
 
-    // line 79
+    // line 85
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 152
+    // line 158
     public function block_script($context, array $blocks = array())
     {
     }
@@ -350,6 +359,6 @@ class __TwigTemplate_802bf7cc1c5f7cde45241cdd68da35c36e739c7f559e4f9933649db2d70
 
     public function getDebugInfo()
     {
-        return array (  337 => 152,  332 => 79,  327 => 15,  322 => 11,  316 => 153,  314 => 152,  310 => 151,  306 => 150,  302 => 149,  297 => 147,  293 => 146,  289 => 145,  285 => 144,  281 => 143,  277 => 142,  273 => 141,  242 => 113,  235 => 109,  228 => 105,  221 => 101,  214 => 97,  207 => 93,  200 => 89,  189 => 80,  187 => 79,  174 => 69,  168 => 66,  162 => 63,  156 => 62,  150 => 59,  144 => 58,  138 => 55,  132 => 54,  124 => 49,  117 => 45,  108 => 41,  102 => 38,  96 => 37,  90 => 34,  84 => 33,  77 => 29,  73 => 28,  66 => 24,  61 => 22,  57 => 21,  52 => 19,  45 => 15,  40 => 13,  37 => 12,  35 => 11,  23 => 1,);
+        return array (  346 => 158,  341 => 85,  336 => 15,  331 => 11,  325 => 159,  323 => 158,  319 => 157,  315 => 156,  311 => 155,  306 => 153,  302 => 152,  298 => 151,  294 => 150,  290 => 149,  286 => 148,  282 => 147,  251 => 119,  244 => 115,  237 => 111,  230 => 107,  223 => 103,  216 => 99,  209 => 95,  198 => 86,  196 => 85,  188 => 79,  180 => 74,  174 => 71,  168 => 68,  165 => 67,  163 => 66,  157 => 63,  151 => 62,  145 => 59,  139 => 58,  131 => 53,  124 => 49,  117 => 45,  108 => 41,  102 => 38,  96 => 37,  90 => 34,  84 => 33,  77 => 29,  73 => 28,  66 => 24,  61 => 22,  57 => 21,  52 => 19,  45 => 15,  40 => 13,  37 => 12,  35 => 11,  23 => 1,);
     }
 }

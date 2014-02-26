@@ -10,10 +10,8 @@ class __TwigTemplate_bc3b095b54134462719e5c1ba15971e48d36bedcfe5950d95a4bbabf502
         $this->parent = $this->env->loadTemplate("base.html.twig");
 
         $this->blocks = array(
-            'meta' => array($this, 'block_meta'),
             'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
-            'script' => array($this, 'block_script'),
         );
     }
 
@@ -28,37 +26,32 @@ class __TwigTemplate_bc3b095b54134462719e5c1ba15971e48d36bedcfe5950d95a4bbabf502
     }
 
     // line 3
-    public function block_meta($context, array $blocks = array())
-    {
-        // line 4
-        echo "
-";
-    }
-
-    // line 8
     public function block_title($context, array $blocks = array())
     {
-        // line 9
+        // line 4
         echo "    Portefolio de Mr Bancarel Valentin
 ";
     }
 
-    // line 13
+    // line 8
     public function block_body($context, array $blocks = array())
     {
-        // line 14
+        // line 9
         echo "    <h2 class=\"slogan align-center\">Bienvenue sur mon portefolio</h2>
 
     <div class=\"one-half\">
-         <p>Je m'appelle Valentin Bancarel, j'ai 19 ans et je suis actuellement étudiant en 2ème année de BTS SIO 
-             (Services Informatiques aux Organisations), spécialité SLAM (Solutions Logicielles 
-             et Applications Métiers) en formation continue au lycée Jean Monnet d'aurillac. Pour plus d'information 
+        <p>Je m'appelle <strong>Valentin Bancarel</strong>, j'ai 19 ans et je suis actuellement étudiant en 2ème année de <strong>BTS SIO</strong> 
+            (Services Informatiques aux Organisations), spécialité <strong>SLAM</strong> (Solutions Logicielles 
+             et Applications Métiers) en formation continue au lycée <a href='http://www.monnet-mermoz.fr/'>Jean Monnet</a> d'aurillac. Pour plus d'information 
              sur cette formation, vous puvez consulter <a href='http://archives.reseaucerta.org/sio/'>la fiche du BTS SIO</a> sur le reseau certa. </p>
     </div>
     <div class=\"one-half last\">
          <p>J'ai créé ce portfolio dans le cadre de ma formation afin de mettre a disposition les différentes competences
-             acquise durant ces 2 années de BTS que ce soit durant les activité et Projet Personnel Encadré réaliser en cours,
-             ou bien mais deux stages en entreprise.
+             acquise et mes travaux réalisés durant ces 2 années de BTS que ce soit durant les activité et Projet Personnel Encadré réaliser en cours,
+             mais deux stages en entreprise, ou encore dans le cadre de ma <a href='";
+        // line 20
+        echo $this->env->getExtension('routing')->getPath("portefolio_veille");
+        echo "'>veille technologique</a>.
     </div>
     <div class=\"clear\"></div>
 
@@ -66,25 +59,25 @@ class __TwigTemplate_bc3b095b54134462719e5c1ba15971e48d36bedcfe5950d95a4bbabf502
 
     <h2 class=\"slogan align-center\">Ma Formation & Mon Parcours</h2>
     <div class=\"one-third last\">
-         <p>Issu d'un Baccalauréat Sciences et Techniques de l'Ingenieur (STI), je poursuis donc mes études en BTS SIO, 
-             option SLAM et je compte ensuite continuer mes études, pour me spécialiser dans le <strong>développement Web ou 
-                 d'aplications mobiles</strong>. Tous cela dans l'optique d'en faire un jour mon metier.</p>
+         <p>
+             Issu d'un Baccalauréat Sciences et Techniques de l'Ingenieur (STI), je poursuis donc mes études en <strong>BTS SIO</strong>, 
+             dans l'objectif de continuer ensuite mes études, pour me spécialiser dans le <strong>développement Web</strong> ou 
+                 d'<strong>aplications mobiles</strong>. Tous cela dans l'optique d'en faire un jour mon metier.
+         </p>
     </div>
     <div class=\"two-third\">
-         <p>J'ai à mon actif deux <strong>stage en entreprise</strong> réaliser dans le cadre de ma formation, ces stage
-             d'une durée de <strong>5 semaines</strong> ce sontt derouler dans l'entreprise <a href=\"http://www.archivage-visy.fr/\">Michel Visy Archivage</a>
-             a Aurillac, le premier stage a donner suite a un <strong>contrat de travail</strong> d'une durée de 
-             <strong>trois semaine</strong> supplementaire. De ce fait, je connais bien les relations avec les clients et le travail en 
-             <strong>milieu professionnel</strong>.</p>
+         <p>
+             J'ai à mon actif deux stage en entreprise réaliser dans le cadre de ma formation, ces stage
+             d'une durée de 5 semaines ce sontt derouler dans l'entreprise <a href=\"http://www.archivage-visy.fr/\">Michel Visy Archivage</a>
+             a Aurillac, le premier stage a donner suite a un contrat de travail d'une durée de 
+             trois semaine supplementaire. De ce fait, je connais bien les relations avec les clients ainsi que le travail en 
+             milieu professionnel.
+             Pour plus d'informations sur mon parcour professionnel, vous pouvez consulter mon <a href=\"";
+        // line 41
+        echo $this->env->getExtension('routing')->getPath("portefolio_cv");
+        echo "\">CV</a>
+         </p>
     </div>
-";
-    }
-
-    // line 47
-    public function block_script($context, array $blocks = array())
-    {
-        // line 48
-        echo "
 ";
     }
 
@@ -100,6 +93,6 @@ class __TwigTemplate_bc3b095b54134462719e5c1ba15971e48d36bedcfe5950d95a4bbabf502
 
     public function getDebugInfo()
     {
-        return array (  87 => 48,  84 => 47,  50 => 14,  47 => 13,  42 => 9,  39 => 8,  34 => 4,  31 => 3,);
+        return array (  77 => 41,  53 => 20,  40 => 9,  37 => 8,  32 => 4,  29 => 3,);
     }
 }

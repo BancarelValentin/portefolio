@@ -1,22 +1,31 @@
 {% extends "base.html.twig" %}
 {% block title %}
     {% if annee == 1 %}
-        1ere année
+1ere année
     {% elseif annee == 2 %}
-        2eme année
+2eme année
     {% endif %}
 {% endblock %}
 
 
 {% block body %}
-    <header class="page-header">
+<header class="page-header">
         {% if annee == 1 %}
             <h1 class="page-title">Travaux realisés en premiere année</h1>
         {% endif %}
         {% if annee == 2 %}
             <h1 class="page-title">Travaux realisés en deuxieme année</h1>
         {% endif %}
-            
+        {% if annee == 0 %}
+            <h1 class="page-title">Travaux personnel</h1>
+            <ul id="portfolio-items-filter">
+                <li>Travaux a afficher:</li>
+                <li><a data-categories="*">Tout</a></li>
+                <li><a data-categories="DW">Dev Web</a></li>
+                <li><a data-categories="DA">Dev Applicatif</a></li>
+                <li><a data-categories="TPA">Autre</a></li>
+            </ul>
+        {% elseif %}
             <ul id="portfolio-items-filter">
                 <li>Travaux a afficher:</li>
                 <li><a data-categories="*">Tout</a></li>
@@ -24,29 +33,36 @@
                 <li><a data-categories="S">Stage</a></li>
                 <li><a data-categories="A">Activités</a></li>
             </ul>
-    </header>
-    
-    
-    <section id="portfolio-items" class="clearfix">
+        {% endif %}
+</header>
+
+
+<section id="portfolio-items" class="clearfix">
         {% for uneReal in lesReals %}
             {% set dataCat=uneReal.id| slice(0, 1) %}
-            <article class="one-half" data-categories="{{dataCat}}">
-                <a href="{{ path('portefolio_show',{'id':uneReal.id}) }}"  title="{{uneReal.titre}}">
-                     <img src="{{ asset('bundles/public/images/realisations/'~uneReal.id~'/'~uneReal.urlimage) }}" width="350" height="200" alt="{{uneReal.titre}}">
-                </a>
-                <a href="{{ path('portefolio_show',{'id':uneReal.id}) }}" class="project-meta">
-                     <h5 class="title">{{uneReal.titre}}</h5>
-                     <span class="categories">
-                         {% if dataCat == "p" %}
-                                Projet Personnel Encadré
-                         {% elseif dataCat == "S" %}
-                                Stage
-                         {% elseif dataCat == "A" %}
-                                Activité réalisé en cours
-                         {% endif%}
-                     </span> 
-                </a>
-            </article>
+    <article class="one-half" data-categories="{{dataCat}}">
+        <a href="{{ path('portefolio_show',{'id':uneReal.id}) }}"  title="{{uneReal.titre}}">
+            <img src="{{ asset('bundles/public/images/realisations/'~uneReal.id~'/'~uneReal.urlimage) }}" width="350" height="200" alt="{{uneReal.titre}}">
+        </a>
+        <a href="{{ path('portefolio_show',{'id':uneReal.id}) }}" class="project-meta">
+            <h5 class="title">{{uneReal.titre}}</h5>
+            <span class="categories">
+                {% if dataCat == "P" %}
+                    Projet Personnel Encadré
+                {% elseif dataCat == "S" %}
+                    Stage
+                {% elseif dataCat == "A" %}
+                    Activité réalisé en cours
+                {% elseif dataCat == "DW" %}
+                    Developpement web
+                {% elseif dataCat == "DA" %}
+                    Developpement applicatif
+                {% elseif dataCat == "TPA" %}
+                    Autre
+                {% endif%}
+            </span> 
+        </a>
+    </article>
         {% endfor %}
-    </section>
+</section>
 {% endblock %}

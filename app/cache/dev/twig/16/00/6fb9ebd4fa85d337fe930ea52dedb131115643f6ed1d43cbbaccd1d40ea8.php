@@ -54,31 +54,44 @@ class __TwigTemplate_16006fb9ebd4fa85d337fe930ea52dedb131115643f6ed1d43cbbaccd1d
     </span>
     <div class=\"acc-container\">
         <div class=\"content\">
-            Developpement Web
+            Developpement web
             <ul class=\"check dotted\">
                 <li>HTML</li>
-                <li>PHP</li>
+                <li>PHP(Symfony 2)</li>
                 <li>MySQL</li>
-                <li>CSS (base)</li>
+                <li>CSS</li>
             </ul>
             <br>
-            Developpement Applicatif:
+            
+            Developpement applicatif:
             <ul class=\"check dotted\">
                 <li>C#</li>
+                <li>JAVA</li>
                 <li>Objectiv-C (base)</li>
             </ul>
             <br>
-            Logiciels utilisés:
+            
+            Base de données:
             <ul class=\"check dotted\">
-                <li>Microsoft Visual Studio 2010-2012</li>
-                <li>Netbeans</li>
-                <li>WAMP-MAMP</li>
-                <li>os x server (base)</li>
+                <li>MySQL</li>
+                <li>SQL Server</li>
             </ul>
             <br>
-            Framework utilisé:
+            
+            Logiciels utilisés:
             <ul class=\"check dotted\">
-                <li>Symfony 2</li>
+                <li>Microsoft Visual Studio 2010-2012-2013</li>
+                <li>Netbeans 7.4</li>
+                <li>OS X server 10.8-10.9</li>
+            </ul>
+            <br>
+            
+            Environement utilisé:
+            <ul class=\"check dotted\">
+                <li>Mac OSX 10.9: MAMP</li>
+                <li>Ubuntu 12.04: Apache/MySQL/PHP</li>
+                <li>Raspbian (Raspberry PI): Apache/MySQL/PHP</li>
+                <li>Windows 7-8: WAMP-XAMP</li>
             </ul>
         </div>
     </div><!-- end .acc-container -->
@@ -91,10 +104,10 @@ class __TwigTemplate_16006fb9ebd4fa85d337fe930ea52dedb131115643f6ed1d43cbbaccd1d
         <div class=\"content\">
             <ul class=\"dash dotted\">
                 <li>2005-2009: college prive Notre Dame des Miracles Mauriac</li>
-                <li>2009-2012: BAC Sciences et Techniques de l' Industrie</li>
-                <li>2012-2014: BTS Service Informatiques aux organisations</li>
-                <li>2012-2014: autoformation au language Objectiv-C</li>
-                <li>Niveau d'anglais BTS</li>
+                <li>2009-2012: BAC Sciences et Techniques de l'Industrie</li>
+                <li>2012-2014: BTS Service Informatiques aux Organisations</li>
+                <li>2012-2014: autoformation au language Objectiv-C et CSS notament gracce a <a href=\"http://www.teamtreehouse.com/valentinbancarel\">treehousse</a> et <a href=\"http://fr.openclassrooms.com/\">open classroom (anciennement le site du zero)</a></li>
+                <li>Niveau d'anglais BTS+</li>
             </ul>
         </div>
     </div><!-- end .acc-container -->
@@ -109,7 +122,7 @@ class __TwigTemplate_16006fb9ebd4fa85d337fe930ea52dedb131115643f6ed1d43cbbaccd1d
                 <li>2009 à 2013: emploi saisonnier tous les étés dans une brasserie a salers (cantal)</li>
                 <li>21 mai 2013 - 28 juin 2013: Stage en entreprise dans le cadre de mon BTS dans l' entreprise <a href=\"http://archives.reseaucerta.org/sio/\">Michel Visy Archivage</a> a Aurillac</li>
                 <li>8 juillet 2013 - 25 juillet 2013: Developpement d'une application web pour l' entreprise <a href=\"http://archives.reseaucerta.org/sio/\">Michel Visy Archivage</a> a Aurillac</li>
-                <li>27 janvier 2014 - 7 fevrier 2014: Stage en entreprise dans le cadre de mon BTS <a href=\"#\"></a> a Aurillac</li>
+                <li>27 janvier 2014 - 28 fevrier 2014: Stage en entreprise dans le cadre de mon BTS dans l' entreprise <a href=\"http://archives.reseaucerta.org/sio/\">Michel Visy Archivage</a> a Aurillac</li>
             </ul>
         </div>
     </div><!-- end .acc-container -->
@@ -122,8 +135,8 @@ class __TwigTemplate_16006fb9ebd4fa85d337fe930ea52dedb131115643f6ed1d43cbbaccd1d
         <div class=\"content\">
             <ul class=\"dash dotted\">
                 <li>Developpmeent d'un site web pour le park de vtt lioran free bike park du lioran disponible <a href=\"www.lioranfreebikepark.tk\">ICI</a> qui n'est actuellement pas le site officiel</li>
-                <li>Developpement de ce portefolio (<a href=\"www.bancarelvalentin.tk\">www.bancarelvalentin.tk</a>) a l'aide d'une template css deja existante</li>
-                <li>Mise en place  d'un serveur FTP, de l'hebergement de ce portefolio (<a href=\"www.bancarelvalentin.tk\">www.bancarelvalentin.tk</a>) ainsi que d'autres services sur mon reseau local a l'aide d'os x server</li>
+                <li>Developpement de <a href=\"www.bancarelvalentin.tk\">ce portefolio</a> a l'aide d'une template css deja existante</li>
+                <li>Mise en place  d'un serveur FTP, de l'hebergement de <a href=\"www.bancarelvalentin.tk\">ce portefolio</a> ainsi que d'autres services sur mon reseau local a l'aide d'os x server dans un premier temp puis sur un Raspberry PI</li>
             </ul>
         </div>
     </div><!-- end .acc-container -->
@@ -144,10 +157,10 @@ class __TwigTemplate_16006fb9ebd4fa85d337fe930ea52dedb131115643f6ed1d43cbbaccd1d
 ";
     }
 
-    // line 111
+    // line 124
     public function block_script($context, array $blocks = array())
     {
-        // line 112
+        // line 125
         echo "
 ";
     }
@@ -164,6 +177,6 @@ class __TwigTemplate_16006fb9ebd4fa85d337fe930ea52dedb131115643f6ed1d43cbbaccd1d
 
     public function getDebugInfo()
     {
-        return array (  151 => 112,  148 => 111,  50 => 14,  47 => 13,  42 => 9,  39 => 8,  34 => 4,  31 => 3,);
+        return array (  164 => 125,  161 => 124,  50 => 14,  47 => 13,  42 => 9,  39 => 8,  34 => 4,  31 => 3,);
     }
 }

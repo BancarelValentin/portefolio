@@ -53,9 +53,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
           public function contactAction($idMessage) {
                $infoUser = '';
+               $error = false;
                if ($this->get('request')->getMethod() == 'POST') {
-                    $infoUser .= '<p class="error">';
-                    $error = false;
+                    $infoUser .= '<p class="error">Erreur:<br/>';
                     if (empty($_POST['spam-check'])) {
                          $infoUser .='SPAM detected little bastard <br/> ';
                     }
@@ -84,16 +84,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
                     if (isset($_POST['subject'])) {
                          $subject = strip_tags($_POST['subject']);
                     }
-                    /*
-                      if (preg_match('/[\n\r]/', $_POST['name']) || preg_match('/[\n\r]/', $_POST['email']) || preg_match('/[\n\r]/', $_POST['subject']) || preg_match('/[\n\r]/', $_POST['message'])) {
-                      $infoUser .= 'En-têtes interdites dans les champs du formulaire<br />';
-                      $error = true;
-                      }
-                     */
                     $to = 'bancarel.valentin@gmail.com';
 
                     $infoUser .= 'Si le probleme persiste, envoyer directement votre mail a <a href="mailto:bancarel.valentin@gmail.com">bancarel.valentin@gmail.com</a></p>';
-
 
                     if ($error == false) {
                          $msg = "Ce mail a été envoyé par le formulaire de contact de votre protefolio par $name: $from ";
@@ -107,7 +100,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
                          if ($this->get('mailer')->send($message)) {
                               $infoUser = '<p class="success">Votre mail a bien été envoyer !</p>';
                          } else {
-                              $infoUser = '<p class="error">Il y a eu un probleme lors de l\'envoi du mail merci de reessayer ou de l\'envoyer directement a <a href="mailto:bancarel.valentin@gmail.com">bancarel.valentin@gmail.com</a>!</p>';
+                              $infoUser = '<p class="error">Erreur:<br/>Il y a eu un probleme lors de l\'envoi du mail merci de reessayer ou de l\'envoyer directement a <a href="mailto:bancarel.valentin@gmail.com">bancarel.valentin@gmail.com</a>!</p>';
                          }
                     }
                }

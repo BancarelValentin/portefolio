@@ -39,7 +39,7 @@
                     </li>
 
                     <li{% if onglet == "real" %} class='current'{% endif %}>
-                        <a href='' data-description="realisations">Travaux</a>
+                        <a data-description="realisations">Travaux</a>
                         <ul>
                             <li>
                                 <a href='{{ path('portefolio_list_travaux',{'annee': 1}) }}'>1ere annee</a>
@@ -47,6 +47,10 @@
 
                             <li>
                                 <a href='{{ path('portefolio_list_travaux',{'annee': 2}) }}'>2eme annee</a>
+                            </li>
+
+                            <li>
+                                <a href='{{ path('portefolio_list_travaux',{'annee': 0}) }}'>Travaux personnel</a>
                             </li>
                         </ul>
                     </li>
@@ -58,18 +62,20 @@
                     <li{% if onglet == "contact" %} class='current'{% endif %}>
                         <a href="{{ path('portefolio_contact') }}" data-description="une question ?">Contact</a>
                     </li>
-
-                    <li{% if onglet == "rpi" %} class='current'{% endif %}>
-                        <a href="{{ path('admin_rpi_homepage') }}" data-description="raspberry">administration RPI</a>
-                        <ul>
-                            <li>
-                                <a href="{{ path('admin_rpi_setReveil') }}">Regler reveil</a>
-                            </li>
-                            <li>
-                                <a href="{{ path('admin_rpi_reveil') }}">Allumer reveil</a>
-                            </li>
-                        </ul>
-                    </li>
+                    
+                    {% if onglet == "rpi" %}
+                        <li class='current'>
+                            <a href="{{ path('admin_rpi_homepage') }}" data-description="raspberry">administration RPI</a>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('admin_rpi_setReveil') }}">Regler reveil</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('admin_rpi_reveil') }}">Allumer reveil</a>
+                                </li>
+                            </ul>
+                        </li>
+                    {% endif %}
                 </ul>
             </nav>
         </header><!-- end #header -->
