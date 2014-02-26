@@ -173,8 +173,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             if (0 === strpos($pathinfo, '/rpi/chan')) {
                 // admin_rpi_changeState
-                if (0 === strpos($pathinfo, '/rpi/chanfgeState') && preg_match('#^/rpi/chanfgeState/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_rpi_changeState')), array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::changeStateAction',));
+                if (0 === strpos($pathinfo, '/rpi/chanfgeState') && preg_match('#^/rpi/chanfgeState/(?P<id>[^/]++)(?:/(?P<etat>[^/]++))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_rpi_changeState')), array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::changeStateAction',  'etat' => 2,));
                 }
 
                 // admin_rpi_change_name_pin
