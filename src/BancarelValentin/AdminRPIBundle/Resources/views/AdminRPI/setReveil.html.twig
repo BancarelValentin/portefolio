@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Raspberry Pi Reveil
+{% endblock %}
+
+
+{% block body %}
+
+{% for unReveil in lesReveils%}
+Vous avez un reveil programmer les: <a onclick="changeJours('{{unReveil.id}}')">
+{% if 1 in unReveil.jour %}Lundi{% endif %}
+{% if 2 in unReveil.jour %}, Mardi{% endif %}
+{% if 3 in unReveil.jour %}, Mercredi{% endif %}
+{% if 4 in unReveil.jour %}, Jeudi{% endif %}
+{% if 5 in unReveil.jour %}, Vendredi{% endif %}
+{% if 6 in unReveil.jour %}, Samedi{% endif %}
+{% if 0 in unReveil.jour %}, Dimanche{% endif %} 
+</a> a <a onclick="changeHeure('{{unReveil.id}}')">{{unReveil.heure}}H</a> : {{unReveil.nom}}</br>
+Le lecteur est: 
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{unReveil.iframe|raw}}&amp;color=ff6600&amp;auto_play=false&amp;show_artwork=true"></iframe>
+<a onclick="changeIframe('{{unReveil.id}}')">Change it</a>
+</br></br></br></br></br>
+{% endfor %}
+<form method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <input type="submit" value='Ajouter' class="btn btn-primary" />
+</form>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    function changeJours(id){
+        if (var value = window.prompt("Nouveau nom:", "")) {
+            jQuery.ajax({
+                url: '{{ path('toto',{'idReveil':id,'value':value}) }}',
+                success: function(data) {
+                    alert(data);
+                }
+            });
+        }
+    }
+    function changeHeure(id){
+        if (var value = window.prompt("Nouveau nom:", "")) {
+            jQuery.ajax({
+                url: '{{ path('toto',{'idReveil':id,'value':value}) }}',
+                success: function(data) {
+                    alert(data);
+                }
+            });
+        }
+    }
+    function changeIframe(id){
+        if (var value = window.prompt("Nouveau nom:", "")) {
+            jQuery.ajax({
+                url: '{{ path('toto',{'idReveil':id,'value':value}) }}',
+                success: function(data) {
+                    alert(data);
+                }
+            });
+        }
+    }
+</script>
+{% endblock %}

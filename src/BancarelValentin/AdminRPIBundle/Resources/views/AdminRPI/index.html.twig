@@ -1,1 +1,152 @@
-Hello {{ name }}!
+{% extends "base.html.twig" %}
+
+{% block meta%}
+<meta name="robots" content="noindex,noarchive,nosnippet,follow" />
+{% endblock %}
+
+{% block title %}
+Administration RPI
+{% endblock %}
+
+
+{% block body %}
+<section id="main">
+    <section class="extended-pricing-table col4 featured clearfix">
+
+        <div class="column featured">
+            <div class="header">
+                <h2 class="title"></h2>
+                <h3 class="price"><span>Objet</span></h3>
+            </div><!-- end .header -->
+            {% for unePin in lesPins %}
+            {% if unePin.equipement != null %}
+            <ul class="features clearfix">
+                <li data-feature="Users"><a onclick="changeName({{unePin.id}})">{{unePin.equipement}}</a></li>            
+            </ul><!-- end .features -->
+            {% endif %}
+            {% endfor %}
+        </div><!-- end .column featured.free -->
+
+        <div class="column featured">
+            <div class="header">
+                <h2 class="title"></h2>
+                <h3 class="price"><span>Port N°</span></h3>
+            </div><!-- end .header -->
+            {% for unePin in lesPins %}
+            {% if unePin.equipement != null %}
+            <ul class="features clearfix">
+                <li data-feature="Users"><a>{{unePin.numwiringpi}}</a></li>            
+            </ul><!-- end .features -->
+            {% endif %}
+            {% endfor %}
+        </div><!-- end .column featured.free -->
+
+        <div class="column featured">
+            <div class="header">
+                <h2 class="title"></h2>
+                <h3 class="price"><span>Etat</span></h3>
+            </div><!-- end .header -->
+            {% for unePin in lesPins %}
+            {% if unePin.equipement != null %}
+            <ul class="features clearfix">
+                <li data-feature="Users">
+                    <a onClick="clickCross({{unePin.id}});" id="pinCross">&cross;</a>
+                    <a onClick="clickCheck({{unePin.id}});" id="pinCheck">&check;</a>
+                </li>            
+            </ul><!-- end .features -->
+            {% endif %}
+            {% endfor %}
+        </div><!-- end .column featured.free -->
+
+    </section>
+
+</section><!-- end main -->
+
+<aside id="sidebar">
+    <div class="widget">
+        <h6 class="widget-title">Action</h6>
+        <ul class="categories">
+            <li><a onclick="switchAllOn()">Tout allumer</a></li>
+            <li><a onclick="switchAllOff()">Tout éteindre</a></li>
+            <li><a onclick="switchAll()">Tout inverser</a></li>
+            <li><a onclick="initAll()">Tout initialiser</a></li>
+        </ul>
+    </div><!-- end .widget -->
+</aside>
+{% endblock %}
+
+{% block body %}
+<script type="text/javascript">
+    function changeName(pin) {
+        var nom = window.prompt("Nouveau nom:", "");
+        jQuery.ajax({
+            url: '{{ path('admin_rpi_change_name_pin',{'idPin':pin,'nom':nom}) }}',
+            success: function(data) {
+                alert(data);
+            }
+        });
+    }
+
+    function switchAllOn() {
+        jQuery.ajax({
+            url: '{{ path('admin_rpi_switchOnAll') }}',
+            success: function(data) {
+                alert(data);
+            }
+        });
+    }
+
+    function switchAllOff() {
+        jQuery.ajax({
+            url: '{{ path('admin_rpi_switchOffAll') }}',
+            success: function(data) {
+                alert(data);
+            }
+        });
+    }
+
+    function switchAll() {
+        jQuery.ajax({
+            url: '{{ path('admin_rpi_switchAll') }}',
+            success: function(data) {
+                alert(data);
+            }
+        });
+    }
+
+    function initAll() {
+        jQuery.ajax({
+            url: '{{ path('admin_rpi_initAll') }}',
+            success: function(data) {
+                alert(data);
+            }
+        });
+    }
+
+    function clickCross(idPin) {
+        jQuery.ajax({
+            url: '{{ path('admin_rpi_changeState',{'idPin':idPin,'etat':1}) }}',
+            success: function(data) {
+                alert(data);
+                var cross = getElementById(pinCross);
+                var check = getElementById(pinCheck);
+                cross.style.display("inline");
+                check.style.display("cross");
+            }
+        });
+    }
+
+    function clickCheck(idPin) {
+        jQuery.ajax({
+            url: '{{ path('admin_rpi_changeState',{'idPin':idPin,'etat':0}) }}',
+            success: function(data) {
+                alert(data);
+                var cross = getElementById(pinCross);
+                var check = getElementById(pinCheck);
+                cross.style.display("none");
+                check.style.display("inline");
+            }
+        });
+    }
+</script>
+{% endblock %}

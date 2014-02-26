@@ -1,12 +1,51 @@
 admin_rpi_homepage:
     pattern:  /
     defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:index }
+
+#RPI
+admin_rpi_switchOnAll:
+    pattern:  /allOn
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:switchOnAll}
+
+admin_rpi_switchOffAll:
+    pattern:  /allOff
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:switchOffAll}
+
+admin_rpi_switchAll:
+    pattern:  /initAll
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:initAll}
+
+admin_rpi_initAll:
+    pattern:  /initAll
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:initAll}
+
+admin_rpi_changeState:
+    pattern:  /chanfgeState/{id}/{etat}
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:changeState,etat:2}
+
+admin_rpi_change_name_pin:
+    pattern:  /changeNamePin/{idPin}/{nom}
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:changeNamePin}
+
+
+#Reveil
+admin_rpi_reveil:
+    pattern:  /reveil
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:reveil}
     
 admin_rpi_setReveil:
     pattern:  /setReveil
     defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:setReveil}
     
-admin_rpi_reveil:
-    pattern:  /reveil/{force}
-    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:reveil,force: 0}
-
+    
+admin_rpi_changeJoursReveil:
+    pattern:  /changeJoursReveil/{idReveil}/{value}
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:changeJoursReveil}
+    
+admin_rpi_changeIframeReveil:
+    pattern:  /changeHeureReveil/{idReveil}/{value}
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:changeIframeReveil}
+    
+admin_rpi_changeHeureReveil:
+    pattern:  /changeHeureReveil/{idReveil}/{value}
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:changeHeureReveil}

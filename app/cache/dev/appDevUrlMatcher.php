@@ -145,14 +145,74 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::indexAction',  '_route' => 'admin_rpi_homepage',);
             }
 
+            if (0 === strpos($pathinfo, '/rpi/allO')) {
+                // admin_rpi_switchOnAll
+                if ($pathinfo === '/rpi/allOn') {
+                    return array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::switchOnAllAction',  '_route' => 'admin_rpi_switchOnAll',);
+                }
+
+                // admin_rpi_switchOffAll
+                if ($pathinfo === '/rpi/allOff') {
+                    return array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::switchOffAllAction',  '_route' => 'admin_rpi_switchOffAll',);
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/rpi/initAll')) {
+                // admin_rpi_switchAll
+                if ($pathinfo === '/rpi/initAll') {
+                    return array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::initAllAction',  '_route' => 'admin_rpi_switchAll',);
+                }
+
+                // admin_rpi_initAll
+                if ($pathinfo === '/rpi/initAll') {
+                    return array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::initAllAction',  '_route' => 'admin_rpi_initAll',);
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/rpi/chan')) {
+                // admin_rpi_changeState
+                if (0 === strpos($pathinfo, '/rpi/chanfgeState') && preg_match('#^/rpi/chanfgeState/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_rpi_changeState')), array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::changeStateAction',));
+                }
+
+                // admin_rpi_change_name_pin
+                if (0 === strpos($pathinfo, '/rpi/changeNamePin') && preg_match('#^/rpi/changeNamePin/(?P<idPin>[^/]++)/(?P<nom>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_rpi_change_name_pin')), array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::changeNamePinAction',));
+                }
+
+            }
+
+            // admin_rpi_reveil
+            if ($pathinfo === '/rpi/reveil') {
+                return array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::reveilAction',  '_route' => 'admin_rpi_reveil',);
+            }
+
             // admin_rpi_setReveil
             if ($pathinfo === '/rpi/setReveil') {
                 return array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::setReveilAction',  '_route' => 'admin_rpi_setReveil',);
             }
 
-            // admin_rpi_reveil
-            if (0 === strpos($pathinfo, '/rpi/reveil') && preg_match('#^/rpi/reveil(?:/(?P<force>[^/]++))?$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_rpi_reveil')), array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::reveilAction',  'force' => 0,));
+            if (0 === strpos($pathinfo, '/rpi/change')) {
+                // admin_rpi_changeJoursReveil
+                if (0 === strpos($pathinfo, '/rpi/changeJoursReveil') && preg_match('#^/rpi/changeJoursReveil/(?P<idReveil>[^/]++)/(?P<value>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_rpi_changeJoursReveil')), array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::changeJoursReveilAction',));
+                }
+
+                if (0 === strpos($pathinfo, '/rpi/changeHeureReveil')) {
+                    // admin_rpi_changeIframeReveil
+                    if (preg_match('#^/rpi/changeHeureReveil/(?P<idReveil>[^/]++)/(?P<value>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_rpi_changeIframeReveil')), array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::changeIframeReveilAction',));
+                    }
+
+                    // admin_rpi_changeHeureReveil
+                    if (preg_match('#^/rpi/changeHeureReveil/(?P<idReveil>[^/]++)/(?P<value>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_rpi_changeHeureReveil')), array (  '_controller' => 'BancarelValentin\\AdminRPIBundle\\Controller\\AdminRPIController::changeHeureReveilAction',));
+                    }
+
+                }
+
             }
 
         }

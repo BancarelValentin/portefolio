@@ -1,195 +1,206 @@
 <?php
 
-namespace BancarelValentin\PortefolioBundle\Entity;
+     namespace BancarelValentin\PortefolioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Pin
- */
-class Pin
-{
-    /**
-     * @var integer
-     */
-    private $numwiringpi;
+     /**
+      * Pin
+      */
+     class Pin {
 
-    /**
-     * @var integer
-     */
-    private $numgpio;
+          /**
+           * @var integer
+           */
+          private $numwiringpi;
 
-    /**
-     * @var string
-     */
-    private $nom;
+          /**
+           * @var integer
+           */
+          private $numgpio;
 
-    /**
-     * @var string
-     */
-    private $mode;
+          /**
+           * @var string
+           */
+          private $nom;
 
-    /**
-     * @var string
-     */
-    private $valeur;
+          /**
+           * @var string
+           */
+          private $mode;
 
-    /**
-     * @var string
-     */
-    private $equipement;
+          /**
+           * @var string
+           */
+          private $valeur;
 
-    /**
-     * @var integer
-     */
-    private $id;
+          /**
+           * @var string
+           */
+          private $equipement;
 
+          /**
+           * @var integer
+           */
+          private $id;
 
-    /**
-     * Set numwiringpi
-     *
-     * @param integer $numwiringpi
-     * @return Pin
-     */
-    public function setNumwiringpi($numwiringpi)
-    {
-        $this->numwiringpi = $numwiringpi;
+          /**
+           * Set numwiringpi
+           *
+           * @param integer $numwiringpi
+           * @return Pin
+           */
+          public function setNumwiringpi($numwiringpi) {
+               $this->numwiringpi = $numwiringpi;
 
-        return $this;
-    }
+               return $this;
+          }
 
-    /**
-     * Get numwiringpi
-     *
-     * @return integer 
-     */
-    public function getNumwiringpi()
-    {
-        return $this->numwiringpi;
-    }
+          /**
+           * Get numwiringpi
+           *
+           * @return integer 
+           */
+          public function getNumwiringpi() {
+               return $this->numwiringpi;
+          }
 
-    /**
-     * Set numgpio
-     *
-     * @param integer $numgpio
-     * @return Pin
-     */
-    public function setNumgpio($numgpio)
-    {
-        $this->numgpio = $numgpio;
+          /**
+           * Set numgpio
+           *
+           * @param integer $numgpio
+           * @return Pin
+           */
+          public function setNumgpio($numgpio) {
+               $this->numgpio = $numgpio;
 
-        return $this;
-    }
+               return $this;
+          }
 
-    /**
-     * Get numgpio
-     *
-     * @return integer 
-     */
-    public function getNumgpio()
-    {
-        return $this->numgpio;
-    }
+          /**
+           * Get numgpio
+           *
+           * @return integer 
+           */
+          public function getNumgpio() {
+               return $this->numgpio;
+          }
 
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     * @return Pin
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
+          /**
+           * Set nom
+           *
+           * @param string $nom
+           * @return Pin
+           */
+          public function setNom($nom) {
+               $this->nom = $nom;
 
-        return $this;
-    }
+               return $this;
+          }
 
-    /**
-     * Get nom
-     *
-     * @return string 
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
+          /**
+           * Get nom
+           *
+           * @return string 
+           */
+          public function getNom() {
+               return $this->nom;
+          }
 
-    /**
-     * Set mode
-     *
-     * @param string $mode
-     * @return Pin
-     */
-    public function setMode($mode)
-    {
-        $this->mode = $mode;
+          /**
+           * Set mode
+           *
+           * @param string $mode
+           * @return Pin
+           */
+          public function setMode($mode) {
+               $this->mode = $mode;
 
-        return $this;
-    }
+               return $this;
+          }
 
-    /**
-     * Get mode
-     *
-     * @return string 
-     */
-    public function getMode()
-    {
-        return $this->mode;
-    }
+          /**
+           * Get mode
+           *
+           * @return string 
+           */
+          public function getMode() {
+               return $this->mode;
+          }
 
-    /**
-     * Set valeur
-     *
-     * @param string $valeur
-     * @return Pin
-     */
-    public function setValeur($valeur)
-    {
-        $this->valeur = $valeur;
+          /**
+           * Set valeur
+           *
+           * @param string $valeur
+           * @return Pin
+           */
+          public function setValeur($valeur) {
+               $this->valeur = $valeur;
 
-        return $this;
-    }
+               return $this;
+          }
 
-    /**
-     * Get valeur
-     *
-     * @return string 
-     */
-    public function getValeur()
-    {
-        return $this->valeur;
-    }
+          /**
+           * Get valeur
+           *
+           * @return string 
+           */
+          public function getValeur() {
+               return $this->valeur;
+          }
 
-    /**
-     * Set equipement
-     *
-     * @param string $equipement
-     * @return Pin
-     */
-    public function setEquipement($equipement)
-    {
-        $this->equipement = $equipement;
+          /**
+           * Set equipement
+           *
+           * @param string $equipement
+           * @return Pin
+           */
+          public function setEquipement($equipement) {
+               $this->equipement = $equipement;
 
-        return $this;
-    }
+               return $this;
+          }
 
-    /**
-     * Get equipement
-     *
-     * @return string 
-     */
-    public function getEquipement()
-    {
-        return $this->equipement;
-    }
+          /**
+           * Get equipement
+           *
+           * @return string 
+           */
+          public function getEquipement() {
+               return $this->equipement;
+          }
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-}
+          /**
+           * Get id
+           *
+           * @return integer 
+           */
+          public function getId() {
+               return $this->id;
+          }
+
+          
+          public function setStateConsole($etat) {
+               exec("gpio write " . $this->getNumwiringpi() . " " . $etat);
+          }
+
+          public function setModeConsole($mode) {
+               exec("gpio mode " . $this->getNumwiringpi() . " " . $mode);
+          }
+
+          public function getStateConsole() {
+               return exec('gpio read ' . $this->getNumwiringpi());
+          }
+
+          public function changeStateConsole() {
+               $etat = $this->getState();
+               if ($etat == 0) {
+                    $etat = 1;
+               } else {
+                    $etat = 0;
+               }
+               $this->setState($this, $etat);
+          }
+
+     }
+     

@@ -601,9 +601,10 @@ class appDevDebugProjectContainer extends Container
 
         $e = new \Doctrine\ORM\Mapping\Driver\DriverChain();
         $e->addDriver($d, 'BancarelValentin\\PortefolioBundle\\Entity');
+        $e->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => 'C:\\Users\\GENERAL\\Documents\\stage\\NetBeansProjects\\portefolio\\src\\BancarelValentin\\AdminRPIBundle\\Entity')), 'BancarelValentin\\AdminRPIBundle\\Entity');
 
         $f = new \Doctrine\ORM\Configuration();
-        $f->setEntityNamespaces(array('BancarelValentinPortefolioBundle' => 'BancarelValentin\\PortefolioBundle\\Entity'));
+        $f->setEntityNamespaces(array('BancarelValentinPortefolioBundle' => 'BancarelValentin\\PortefolioBundle\\Entity', 'BancarelValentinAdminRPIBundle' => 'BancarelValentin\\AdminRPIBundle\\Entity'));
         $f->setMetadataCacheImpl($a);
         $f->setQueryCacheImpl($b);
         $f->setResultCacheImpl($c);

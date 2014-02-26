@@ -2295,6 +2295,7 @@
           <call method="setEntityNamespaces">
             <argument type="collection">
               <argument key="BancarelValentinPortefolioBundle">BancarelValentin\PortefolioBundle\Entity</argument>
+              <argument key="BancarelValentinAdminRPIBundle">BancarelValentin\AdminRPIBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2339,6 +2340,17 @@
                     </service>
                   </argument>
                   <argument>BancarelValentin\PortefolioBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>C:\Users\GENERAL\Documents\stage\NetBeansProjects\portefolio\src\BancarelValentin\AdminRPIBundle\Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>BancarelValentin\AdminRPIBundle\Entity</argument>
                 </call>
               </service>
             </argument>
