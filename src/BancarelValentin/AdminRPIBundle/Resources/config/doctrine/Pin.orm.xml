@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="BancarelValentin\AdminRPIBundle\Entity\Pin" table="pin">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="numwiringpi" type="integer" column="numWiringPi" nullable="false"/>
+    <field name="numgpio" type="integer" column="numGPIO" nullable="false"/>
+    <field name="nom" type="string" column="nom" length="100" nullable="false"/>
+    <field name="mode" type="string" column="mode" length="10" nullable="false"/>
+    <field name="valeur" type="string" column="valeur" length="10" nullable="false"/>
+    <field name="equipement" type="string" column="equipement" length="255" nullable="true"/>
+  </entity>
+</doctrine-mapping>

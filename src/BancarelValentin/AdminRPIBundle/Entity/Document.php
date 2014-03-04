@@ -1,6 +1,6 @@
 <?php
 
-namespace BancarelValentin\PortefolioBundle\Entity;
+namespace BancarelValentin\AdminRPIBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -20,17 +20,12 @@ class Document
     private $titre;
 
     /**
-     * @var string
-     */
-    private $iframe;
-
-    /**
      * @var integer
      */
     private $id;
 
     /**
-     * @var \BancarelValentin\PortefolioBundle\Entity\Realisation
+     * @var \BancarelValentin\AdminRPIBundle\Entity\Realisation
      */
     private $idreal;
 
@@ -82,29 +77,6 @@ class Document
     }
 
     /**
-     * Set iframe
-     *
-     * @param string $iframe
-     * @return Document
-     */
-    public function setIframe($iframe)
-    {
-        $this->iframe = $iframe;
-
-        return $this;
-    }
-
-    /**
-     * Get iframe
-     *
-     * @return string 
-     */
-    public function getIframe()
-    {
-        return $this->iframe;
-    }
-
-    /**
      * Get id
      *
      * @return integer 
@@ -117,10 +89,10 @@ class Document
     /**
      * Set idreal
      *
-     * @param \BancarelValentin\PortefolioBundle\Entity\Realisation $idreal
+     * @param \BancarelValentin\AdminRPIBundle\Entity\Realisation $idreal
      * @return Document
      */
-    public function setIdreal(\BancarelValentin\PortefolioBundle\Entity\Realisation $idreal = null)
+    public function setIdreal(\BancarelValentin\AdminRPIBundle\Entity\Realisation $idreal = null)
     {
         $this->idreal = $idreal;
 
@@ -130,7 +102,7 @@ class Document
     /**
      * Get idreal
      *
-     * @return \BancarelValentin\PortefolioBundle\Entity\Realisation 
+     * @return \BancarelValentin\AdminRPIBundle\Entity\Realisation 
      */
     public function getIdreal()
     {

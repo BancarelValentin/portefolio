@@ -1,6 +1,6 @@
 <?php
 
-namespace BancarelValentin\PortefolioBundle\Entity;
+namespace BancarelValentin\AdminRPIBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

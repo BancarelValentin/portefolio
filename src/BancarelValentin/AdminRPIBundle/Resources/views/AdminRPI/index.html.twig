@@ -50,8 +50,11 @@ Administration RPI
             {% if unePin.equipement != null %}
             <ul class="features clearfix">
                 <li data-feature="Users">
-                    <a onClick="clickCross({{unePin.id}});" id="pinCross">&cross;</a>
-                    <a onClick="clickCheck({{unePin.id}});" id="pinCheck">&check;</a>
+                    {% if unePin.valeur == 1 %}
+                        <a onClick="changeState({{unePin.id}});" id="pinCross">&cross;</a>
+                    {% else %}
+                        <a onClick="changeState({{unePin.id}});" id="pinCheck">&check;</a>
+                    {% endif %}
                 </li>            
             </ul><!-- end .features -->
             {% endif %}
@@ -75,12 +78,16 @@ Administration RPI
 </aside>
 {% endblock %}
 
-{% block javascript %}
+{% block script %}
+
 <script type="text/javascript">
     function changeName(pin) {
         var nom = window.prompt("Nouveau nom:", "");
+        var url = '{{ path('admin_rpi_change_name_pin',{'idPin':'@pin@','nom':'@nom@'}) }}';
+        var url = (url.replace("@pin@",pin)).replace("@nom@",nom);
+        alert(url);
         jQuery.ajax({
-            url: '{{ path('admin_rpi_change_name_pin',{'idPin':pin,'nom':nom}) }}',
+            url: url,
             success: function(data) {
                 alert(data);
             }
@@ -123,22 +130,11 @@ Administration RPI
         });
     }
 
-    function clickCross(idPin) {
+    function changeState(idPin) {
+        var url = '{{ path('admin_rpi_changeState',{'id':'@idPin@'}) }}';
+        var url = url.replace("@idPin@",idPin);
         jQuery.ajax({
-            url: '{{ path('admin_rpi_changeState',{'idPin':idPin,'etat':1}) }}',
-            success: function(data) {
-                alert(data);
-                var cross = getElementById(pinCross);
-                var check = getElementById(pinCheck);
-                cross.style.display("inline");
-                check.style.display("cross");
-            }
-        });
-    }
-
-    function clickCheck(idPin) {
-        jQuery.ajax({
-            url: '{{ path('admin_rpi_changeState',{'idPin':idPin,'etat':0}) }}',
+            url: url,
             success: function(data) {
                 alert(data);
                 var cross = getElementById(pinCross);

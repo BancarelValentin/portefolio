@@ -1,6 +1,6 @@
 <?php
 
-namespace BancarelValentin\PortefolioBundle\Entity;
+namespace BancarelValentin\AdminRPIBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -35,7 +35,7 @@ class Image
     private $id;
 
     /**
-     * @var \BancarelValentin\PortefolioBundle\Entity\Realisation
+     * @var \BancarelValentin\AdminRPIBundle\Entity\Realisation
      */
     private $idreal;
 
@@ -145,10 +145,10 @@ class Image
     /**
      * Set idreal
      *
-     * @param \BancarelValentin\PortefolioBundle\Entity\Realisation $idreal
+     * @param \BancarelValentin\AdminRPIBundle\Entity\Realisation $idreal
      * @return Image
      */
-    public function setIdreal(\BancarelValentin\PortefolioBundle\Entity\Realisation $idreal = null)
+    public function setIdreal(\BancarelValentin\AdminRPIBundle\Entity\Realisation $idreal = null)
     {
         $this->idreal = $idreal;
 
@@ -158,7 +158,7 @@ class Image
     /**
      * Get idreal
      *
-     * @return \BancarelValentin\PortefolioBundle\Entity\Realisation 
+     * @return \BancarelValentin\AdminRPIBundle\Entity\Realisation 
      */
     public function getIdreal()
     {

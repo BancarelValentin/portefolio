@@ -13,15 +13,15 @@ admin_rpi_switchOffAll:
 
 admin_rpi_switchAll:
     pattern:  /initAll
-    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:initAll}
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:switchAll}
 
 admin_rpi_initAll:
     pattern:  /initAll
-    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:initAll}
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:inithAll}
 
 admin_rpi_changeState:
-    pattern:  /chanfgeState/{id}/{etat}
-    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:changeState,etat:2}
+    path:  /changeState/{id}/{etat}
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:changeState, etat: 2}
 
 admin_rpi_change_name_pin:
     pattern:  /changeNamePin/{idPin}/{nom}
