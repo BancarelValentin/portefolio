@@ -33,6 +33,10 @@ dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset,blockquote,article,p { 
 #pinCross{
     color:#FE0000;
 }
+
+a[onclick]:hover{
+    cursor:pointer;
+}
 /* ---------------------------------------------------------------------- */
 /*	End Perso
 /* ---------------------------------------------------------------------- */
@@ -1928,7 +1932,7 @@ input.placeholder, textarea.placeholder { color: #b0b0b0; }
 	.entry-body {
 		float: right;
 		margin: -5px 0 0;
-		width: 550px;
+		width: 800px;//CHANGE BEFORE: 550PX
 	}
 
 		.entry-body .title {

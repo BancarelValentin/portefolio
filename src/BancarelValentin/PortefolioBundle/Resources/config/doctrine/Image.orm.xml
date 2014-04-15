@@ -8,8 +8,8 @@
       <generator strategy="IDENTITY"/>
     </id>
     <field name="url" type="string" column="url" length="255" nullable="false"/>
-    <field name="titre" type="string" column="titre" length="30" nullable="false"/>
-    <field name="soustitre" type="string" column="sousTitre" length="30" nullable="false"/>
+    <field name="titre" type="string" column="titre" length="255" nullable="false"/>
+    <field name="soustitre" type="string" column="sousTitre" length="255" nullable="false"/>
     <field name="description" type="text" column="description" nullable="false"/>
     <many-to-one field="idreal" target-entity="Realisation">
       <join-columns>

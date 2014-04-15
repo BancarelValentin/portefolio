@@ -12,12 +12,12 @@ admin_rpi_switchOffAll:
     defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:switchOffAll}
 
 admin_rpi_switchAll:
-    pattern:  /initAll
+    pattern:  /switchAll
     defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:switchAll}
 
 admin_rpi_initAll:
     pattern:  /initAll
-    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:inithAll}
+    defaults: { _controller: BancarelValentinAdminRPIBundle:AdminRPI:initAll}
 
 admin_rpi_changeState:
     path:  /changeState/{id}/{etat}

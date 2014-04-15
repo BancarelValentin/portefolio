@@ -20,11 +20,6 @@ class Document
     private $titre;
 
     /**
-     * @var string
-     */
-    private $iframe;
-
-    /**
      * @var integer
      */
     private $id;
@@ -79,29 +74,6 @@ class Document
     public function getTitre()
     {
         return $this->titre;
-    }
-
-    /**
-     * Set iframe
-     *
-     * @param string $iframe
-     * @return Document
-     */
-    public function setIframe($iframe)
-    {
-        $this->iframe = $iframe;
-
-        return $this;
-    }
-
-    /**
-     * Get iframe
-     *
-     * @return string 
-     */
-    public function getIframe()
-    {
-        return $this->iframe;
     }
 
     /**

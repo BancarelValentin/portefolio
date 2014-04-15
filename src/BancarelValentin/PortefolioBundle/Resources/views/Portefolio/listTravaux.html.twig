@@ -4,28 +4,31 @@
 1ere année
     {% elseif annee == 2 %}
 2eme année
+    {% elseif annee == 0 %}
+Travaux personnel
     {% endif %}
 {% endblock %}
 
-
 {% block body %}
 <header class="page-header">
-        {% if annee == 1 %}
+        {% if annee == 0 %}
+            <h1 class="page-title">Travaux realisés en dehors de ma formation</h1>
+        {% elseif annee == 1 %}
             <h1 class="page-title">Travaux realisés en premiere année</h1>
-        {% endif %}
-        {% if annee == 2 %}
+        {% elseif annee == 2 %}
             <h1 class="page-title">Travaux realisés en deuxieme année</h1>
         {% endif %}
+            
         {% if annee == 0 %}
             <h1 class="page-title">Travaux personnel</h1>
             <ul id="portfolio-items-filter">
                 <li>Travaux a afficher:</li>
                 <li><a data-categories="*">Tout</a></li>
-                <li><a data-categories="DW">Dev Web</a></li>
-                <li><a data-categories="DA">Dev Applicatif</a></li>
-                <li><a data-categories="TPA">Autre</a></li>
+                <li><a data-categories="W">Dev Web</a></li>
+                <li><a data-categories="A">Dev Applicatif</a></li>
+                <li><a data-categories="Z">Autre</a></li>
             </ul>
-        {% elseif %}
+        {% else %}
             <ul id="portfolio-items-filter">
                 <li>Travaux a afficher:</li>
                 <li><a data-categories="*">Tout</a></li>
@@ -34,6 +37,7 @@
                 <li><a data-categories="A">Activités</a></li>
             </ul>
         {% endif %}
+
 </header>
 
 

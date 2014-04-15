@@ -48,7 +48,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
                        ->getRepository('BancarelValentinPortefolioBundle:Realisation');
                $toutesLesesReals = $repository->findBy(array('annee' => 3));
 
-               return $this->render('BancarelValentinPortefolioBundle:Portefolio:listTravaux.html.twig', array('onglet' => 'veille', 'lesReals' => $toutesLesesReals));
+               return $this->render('BancarelValentinPortefolioBundle:Portefolio:veille.html.twig', array('onglet' => 'veille', 'lesReals' => $toutesLesesReals));
           }
 
           public function contactAction($idMessage) {

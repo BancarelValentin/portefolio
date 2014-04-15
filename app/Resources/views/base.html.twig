@@ -114,10 +114,11 @@
                             <li>
                                 <a href="{{ path('portefolio_contact') }}">Contact</a>
                             </li>
-
-                            <li>
-                                <a href="{{ path('admin_rpi_homepage') }}">administration RPI</a>
-                            </li>
+                            {% if (app.request.server.get("REMOTE_ADDR") == '192.168') or (app.request.server.get("REMOTE_ADDR") == '127.0.0.1')%}
+                                <li>
+                                    <a href="{{ path('admin_rpi_homepage') }}">administration RPI</a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </nav><!-- end #footer-nav -->
 

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block title %}
-Administration RPI
+dfvAdministration RPI
 {% endblock %}
 
 
@@ -51,9 +51,11 @@ Administration RPI
             <ul class="features clearfix">
                 <li data-feature="Users">
                     {% if unePin.valeur == 1 %}
-                        <a onClick="changeState({{unePin.id}});" id="pinCross">&cross;</a>
+                    <a onClick="changeState({{unePin.id}});" id="pinCross{{unePin.id}}" style="display: initial;">&cross;</a>
+                    <a onClick="changeState({{unePin.id}});" id="pinCheck{{unePin.id}}" style="display: none;">&check;</a>
                     {% else %}
-                        <a onClick="changeState({{unePin.id}});" id="pinCheck">&check;</a>
+                    <a onClick="changeState({{unePin.id}});" id="pinCross{{unePin.id}}" style="display: none;">&cross;</a>
+                    <a onClick="changeState({{unePin.id}});" id="pinCheck{{unePin.id}}" style="display: initial;">&check;</a>
                     {% endif %}
                 </li>            
             </ul><!-- end .features -->
@@ -84,8 +86,7 @@ Administration RPI
     function changeName(pin) {
         var nom = window.prompt("Nouveau nom:", "");
         var url = '{{ path('admin_rpi_change_name_pin',{'idPin':'@pin@','nom':'@nom@'}) }}';
-        var url = (url.replace("@pin@",pin)).replace("@nom@",nom);
-        alert(url);
+        var url = (url.replace("@pin@", pin)).replace("@nom@", nom);
         jQuery.ajax({
             url: url,
             success: function(data) {
@@ -132,15 +133,11 @@ Administration RPI
 
     function changeState(idPin) {
         var url = '{{ path('admin_rpi_changeState',{'id':'@idPin@'}) }}';
-        var url = url.replace("@idPin@",idPin);
+        var url = url.replace("@idPin@", idPin);
         jQuery.ajax({
             url: url,
             success: function(data) {
                 alert(data);
-                var cross = getElementById(pinCross);
-                var check = getElementById(pinCheck);
-                cross.style.display("none");
-                check.style.display("inline");
             }
         });
     }

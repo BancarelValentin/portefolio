@@ -3,11 +3,11 @@
 namespace BancarelValentin\AdminRPIBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use BancarelValentin\AdminRPIBundle\Entity\Reveil;
 
 class AdminRPIController extends Controller {
 
     public function indexAction() {
-        $this->write('----------------------------------------------------------------------------------------------------------------------------------');
         $lesPins = $this->getAllPin();
         $em = $this->getDoctrine()->getManager();
         $repository = $em
@@ -21,7 +21,7 @@ class AdminRPIController extends Controller {
     public function switchOnAllAction() {
         $lesPins = $this->getAllPin();
         foreach ($lesPins as $unePin) {
-            $this->setStateConsole('1', $unePin);
+            $this->setStateConsole('0', $unePin);
         }
         return $this->render('BancarelValentinAdminRPIBundle:AdminRPI:showSomething.html.twig', array('toShow' => 'success'));
     }
@@ -29,7 +29,7 @@ class AdminRPIController extends Controller {
     public function switchOffAllAction() {
         $lesPins = $this->getAllPin();
         foreach ($lesPins as $unePin) {
-            $this->setStateConsole('0', $unePin);
+            $this->setStateConsole('1', $unePin);
         }
         return $this->render('BancarelValentinAdminRPIBundle:AdminRPI:showSomething.html.twig', array('toShow' => 'success'));
     }
@@ -67,13 +67,13 @@ class AdminRPIController extends Controller {
         $laPin = $this->getUnePin($idPin);
         $laPin->setEquipement($nom);
         $em->flush();
-        return $this->render('BancarelValentinAdminRPIBundle:AdminRPI:index.html.twig', array('onglet' => 'rpi', 'lesPins' => $lesPins));
+        return $this->render('BancarelValentinAdminRPIBundle:AdminRPI:showSomething.html.twig', array('toShow' => 'success'));
     }
 
     public function setReveilAction() {
         $em = $this->getDoctrine()->getManager();
-        $lesReveils = $this->getAllPin();
-        $reveil = new \BancarelValentin\AdministrationRPIBundle\Entity\Reveil();
+        $lesReveils = $this->getAllReveil();
+        $reveil = new Reveil();
         $form = $this->createFormBuilder($reveil)
                 ->add('iframe', 'textarea')
                 ->add('heure', 'text')
@@ -93,14 +93,14 @@ class AdminRPIController extends Controller {
     }
 
     public function reveilAction() {
-        $lesReveils = $this->getAllPin();
+        $lesReveils = $this->getAllReveil();
         foreach ($lesReveils as $unReveil) {
-            if (isNow($unReveil)) {
+            if ($this->isNow($unReveil)) {
                 $this->activeAll();
-                return $this->render('BancarelValentinAdminRPIBundle:AdminRPI:reveil.html.twig', array('onglet' => 'rpi', 'reveil' => $unReveil));
+                return $this->render('BancarelValentinAdminRPIBundle:AdminRPI:reveil.html.twig', array('onglet' => 'rpi', 'reveil' => $unReveil, 'refresh' => 'non'));
             }
         }
-        return $this->render('BancarelValentinAdminRPIBundle:AdminRPI:reveil.html.twig', array('onglet' => 'rpi', 'reveil' => null));
+        return $this->render('BancarelValentinAdminRPIBundle:AdminRPI:reveil.html.twig', array('onglet' => 'rpi', 'reveil' => null, 'refresh' => 'oui'));
     }
 
     public function changeJoursReveilAction($idReveil, $nom) {
@@ -167,7 +167,7 @@ class AdminRPIController extends Controller {
         $lesPins = $repository->findAll();
 
         foreach ($lesPins as $unPin) {
-            $this->setStateConsole($unPin, '0');
+            $this->setStateConsole( '0',$unPin);
         }
     }
 
@@ -182,8 +182,7 @@ class AdminRPIController extends Controller {
     }
 
     public function getStateConsole($pin) {
-        $this->write('gpio read ' . $pin->getNumwiringpi());
-        return "0";
+        return $this->write('gpio read ' . $pin->getNumwiringpi());
     }
 
     public function changeStateConsole($pin) {
@@ -199,22 +198,24 @@ class AdminRPIController extends Controller {
 
     public function isNow($reveil) {
         $lesJours = explode('*', $reveil->getJour());
+        $lHeure = explode('H', $reveil->getHeure());
+        $heure = $lHeure[0];
+        $minute = $lHeure[1];
         foreach ($lesJours as $unJour) {
-            $lHeure = explode('H', $reveil->getHeure());
-            $heure = $lHeure[0];
-            $minute = $lHeure[1];
-            //echo date('w') .'VS'. $unJour .'<br/>'. (date('G') + 1) .'VS'. $heure .'OU'. (date('H') + 1) .'VS'. $heure .'<br/>'.(date('i') .'VS'. $minute.'OU'.date('i') .'VS'. $minute).'<br/><br/>';
-            if ((date('w') == $unJour && (date('G') + 1 == $heure || date('H') + 1 == $heure) && (date('i') == $minute || date('i') == $minute))/* || $force == '1' */) {
-                return true;
+            //echo date('w') .'VS'. $unJour .'<br/>'. (date('G')) .'VS'. $heure .'OU'. (date('H')) .'VS'. $heure .'<br/>'.(date('i') .'VS'. $minute.'OU'.date('i') .'VS'. $minute).'<br/><br/>';
+            if (date('w') == $unJour) {
+                if ((date('G')== $heure || date('H') == $heure) && (date('i') == $minute)) {
+                    return true;
+                }
             }
         }
         return false;
     }
 
     public function write($toWrite) {
-        exec($toWrite);
         $handle = fopen("console.txt", "a");
         fwrite($handle, $toWrite . "\n");
+        return exec($toWrite);
     }
 
 }
