@@ -29,7 +29,9 @@ dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset,blockquote,article,p { 
 #pinCheck{
     color:#00FE00;
 }
-
+body{
+    font-size: 80% !important;
+}
 #pinCross{
     color:#FE0000;
 }
